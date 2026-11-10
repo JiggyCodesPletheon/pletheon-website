@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookstore | Pletheon Media Network</title>
+  <meta name="description" content="Browse new nonfiction books from Pletheon Media Network: spirituality, energy healing, technical handbooks and more. Single and bulk orders welcome.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){try{var t=localStorage.getItem("pmn-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/style.css?v=4">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span>Bulk orders for stores, schools and events, <a href="#" class="js-bulk">ask for a quote</a></span>
+    <span class="hide-sm"><a href="index.html">Want your own book written? →</a></span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.svg" alt="" width="40" height="40"><span class="brand-text"><b>Pletheon</b><small>Media Network</small></span></a>
+    <nav class="nav">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">How it works</a>
+      <a href="books.html" aria-current="page">Bookstore</a>
+      <a class="btn btn-primary" href="index.html#contact">Start a book</a>
+    </nav>
+    <div class="header-actions"><button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Switch theme"><span class="sun">☀</span><span class="moon">☾</span></button><button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button></div>
+  </div>
+</header>
+
+<section class="gate" id="gate">
+  <div class="gate-card">
+    <img src="assets/logo.svg" alt="" width="56" height="56">
+    <span class="eyebrow">Private bookstore</span>
+    <h1>Enter your access code</h1>
+    <p>The Pletheon bookstore is open to clients and partners. Enter the access code you were given to browse the catalog.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="gate-code" type="password" placeholder="Access code" aria-label="Access code" required autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="btn btn-coral" type="submit" id="gate-btn">Unlock</button>
+    </form>
+    <p class="gate-msg" id="gate-msg" role="alert"></p>
+    <p class="form-note">Don't have a code? <a class="js-email" href="#">Email us</a> to request access.</p>
+  </div>
+</section>
+
+<main id="store-main" hidden>
+  <div class="store-banner">
+    <div class="wrap">
+      <div class="banner">
+        <div>
+          <span class="eyebrow">New releases</span>
+          <h1 style="font-size:clamp(2.2rem,4.4vw,3.6rem)">There's a book here for every <span class="accent" style="color:var(--gold)">curious mind.</span></h1>
+          <p>Nearly 200 nonfiction titles on spirituality, mental health, self-help, health, business and the technical world, ready to order in paperback or ebook.</p>
+          <form class="banner-search" id="banner-search">
+            <input type="search" placeholder="Search titles or authors" aria-label="Search books">
+            <button class="btn btn-coral btn-sm" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="banner-covers" id="banner-covers"></div>
+      </div>
+    </div>
+  </div>
+
+  <section style="padding:56px 0 0">
+    <div class="wrap">
+      <div class="perks">
+        <div class="perk"><span class="ic">📦</span><div><b>Paperback &amp; ebook</b><span>Choose your format</span></div></div>
+        <div class="perk"><span class="ic">🏷️</span><div><b>Bulk pricing</b><span>For stores and events</span></div></div>
+        <div class="perk"><span class="ic">🌍</span><div><b>Delivery options</b><span>Ask about your country</span></div></div>
+        <div class="perk"><span class="ic">💬</span><div><b>Real people</b><span>We reply by email</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:64px 0 0">
+    <div class="wrap">
+      <div class="head-row">
+        <div class="section-head"><span class="eyebrow">Featured</span><h2 style="margin:0">Just released</h2></div>
+        <div class="rail-btns"><button type="button" data-dir="-1" aria-label="Scroll left">←</button><button type="button" data-dir="1" aria-label="Scroll right">→</button></div>
+      </div>
+      <div class="rail" id="rail"></div>
+    </div>
+  </section>
+
+  <section id="all" style="padding-top:64px">
+    <div class="wrap">
+      <div class="head-row">
+        <div class="section-head"><span class="eyebrow">Browse</span><h2 style="margin:0">All books</h2></div>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="q" placeholder="Search by title, subtitle or author" aria-label="Search books">
+        <select id="sort" aria-label="Sort books">
+          <option value="new">Newest first</option>
+          <option value="az">Title A–Z</option>
+        </select>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by genre"></div>
+      <p class="result-count" id="count"></p>
+      <div class="book-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap promos">
+      <div class="promo promo-a">
+        <span class="eyebrow" style="color:var(--gold)">Bulk orders</span>
+        <h3>Buying for a store, school or event?</h3>
+        <p>We supply printed copies in bulk and help with physical distribution.</p>
+        <div><a class="btn btn-coral js-bulk" href="#">Ask about bulk orders</a></div>
+      </div>
+      <div class="promo promo-b">
+        <span class="eyebrow">For authors</span>
+        <h3>Want a book like these?</h3>
+        <p>We write, design and prepare books for authors, publishers and companies.</p>
+        <div><a class="btn btn-primary" href="index.html#contact">Start your book</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="order">
+  <form class="dlg" id="order-form" method="dialog">
+    <button class="close" value="cancel" aria-label="Close">×</button>
+    <div class="dlg-head">
+      <img id="order-cover" alt="">
+      <div>
+        <span class="eyebrow" style="margin:0 0 4px">Order inquiry</span>
+        <h3 id="order-title" style="margin:0"></h3>
+        <p class="form-note" id="order-author"></p>
+      </div>
+    </div>
+    <div class="row2">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+    </div>
+    <div class="row2">
+      <label>Format
+        <select name="format"><option>Paperback</option><option>Ebook</option><option>Both</option></select>
+      </label>
+      <label>Quantity<input name="qty" type="number" min="1" value="1"></label>
+    </div>
+    <label>Message<textarea name="message" placeholder="Shipping country, deadline, questions"></textarea></label>
+    <button class="btn btn-coral" type="submit" value="send">Send order inquiry</button>
+    <p class="form-note">This opens your email app with the details filled in. We'll reply with price and availability.</p>
+  </form>
+</dialog>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.svg" alt="" width="40" height="40"><span class="brand-text"><b>Pletheon</b><small>Media Network</small></span></a>
+        <p>Done-for-you book creation, publishing support and distribution for authors, publishers and companies.</p>
+      </div>
+      <div><h4>Bookstore</h4><ul><li><a href="#rail">Just released</a></li><li><a href="#all">All books</a></li><li><a class="js-bulk" href="#">Bulk orders</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#services">Services</a></li><li><a href="index.html#process">How it works</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div><h4>Get in touch</h4><ul><li><a class="js-email" href="#">email</a></li><li><a href="index.html#contact">Request a quote</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© <span class="js-year"></span> Pletheon Media Network. All rights reserved.</span><span>Books written for clients remain the property of their owners.</span></div>
+  </div>
+</footer>
+
+<script src="assets/books.enc.js?v=4"></script>
+<script src="assets/site.js?v=4"></script>
+<script src="assets/store.js?v=5"></script>
+</body>
+</html>
