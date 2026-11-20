@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roadmap | Pletheon Media Network</title>
+  <meta name="description" content="Private project roadmaps for Pletheon Media Network clients.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){try{var t=localStorage.getItem("pmn-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/style.css?v=6">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span>Private client roadmaps</span>
+    <span class="hide-sm"><a href="index.html">Want your own book written? →</a></span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.svg" alt="" width="40" height="40"><span class="brand-text"><b>Pletheon</b><small>Media Network</small></span></a>
+    <nav class="nav">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">How it works</a>
+      <a href="books.html">Bookstore</a>
+      <a href="roadmap.html" aria-current="page">Roadmap</a>
+      <a class="btn btn-primary" href="index.html#contact">Start a book</a>
+    </nav>
+    <div class="header-actions"><button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Switch theme"><span class="sun">☀</span><span class="moon">☾</span></button><button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button></div>
+  </div>
+</header>
+
+<section class="gate" id="gate">
+  <div class="gate-card">
+    <img src="assets/logo.svg" alt="" width="56" height="56">
+    <span class="eyebrow">Private roadmap</span>
+    <h1>Enter your access code</h1>
+    <p>Project roadmaps are private. Enter the same access code you use for the bookstore.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="gate-code" type="password" placeholder="Access code" aria-label="Access code" required autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="btn btn-coral" type="submit" id="gate-btn">Unlock</button>
+    </form>
+    <p class="gate-msg" id="gate-msg" role="alert"></p>
+  </div>
+</section>
+
+<main id="rm-main" hidden>
+  <section class="rm-hero">
+    <div class="wrap">
+      <span class="eyebrow">Roadmap</span>
+      <h1>Client projects &amp; plans</h1>
+      <p class="lead">Every client strategy in one place: writing plans, launch plans, bookstore plans and design work. Open a project to see its series, books, pen names and milestones.</p>
+      <div class="rm-stats" id="rm-stats"></div>
+    </div>
+  </section>
+  <section class="rm-body">
+    <div class="wrap">
+      <div class="rm-toolbar">
+        <div class="rm-tabs" id="rm-tabs" role="tablist" aria-label="Plan type"></div>
+        <div class="rm-tools">
+          <input type="search" id="rm-q" placeholder="Search titles, pen names, clients" aria-label="Search roadmap">
+          <button class="btn btn-light btn-sm" type="button" id="rm-expand">Expand all</button>
+          <button class="btn btn-light btn-sm" type="button" id="rm-collapse">Collapse all</button>
+        </div>
+      </div>
+      <div id="rm-list"></div>
+      <p class="form-note" id="rm-updated" style="margin-top:28px"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.svg" alt="" width="40" height="40"><span class="brand-text"><b>Pletheon</b><small>Media Network</small></span></a>
+        <p>Done-for-you book creation, publishing support and distribution for authors, publishers and companies.</p>
+      </div>
+      <div><h4>Private</h4><ul><li><a href="books.html">Bookstore</a></li><li><a href="roadmap.html">Roadmap</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#services">Services</a></li><li><a href="index.html#process">How it works</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div><h4>Get in touch</h4><ul><li><a class="js-email" href="#">email</a></li><li><a href="index.html#contact">Request a quote</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© <span class="js-year"></span> Pletheon Media Network. All rights reserved.</span><span>Books written for clients remain the property of their owners.</span></div>
+  </div>
+</footer>
+
+<script src="assets/roadmap.enc.js?v=1"></script>
+<script src="assets/site.js?v=4"></script>
+<script src="assets/roadmap.js?v=1"></script>
+</body>
+</html>
