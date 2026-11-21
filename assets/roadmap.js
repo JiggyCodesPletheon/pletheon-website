@@ -26,6 +26,8 @@
   }
   const pill = s => `<span class="st ${statusClass(s)}">${esc(s || 'Not started')}</span>`;
   const blank = v => (v && String(v).trim()) ? esc(v) : '<em class="tba">To be added</em>';
+  // Tiny formatter for notes: **bold** and *italic* only, applied after escaping.
+  const fmt = v => esc(v).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\*(.+?)\*/g, '<em>$1</em>');
 
   function render(data) {
     const projects = data.projects || [];
@@ -69,11 +71,15 @@
             <span class="rm-chev" aria-hidden="true"></span>
           </summary>
           <div class="rm-series-body">
+            ${s.description ? `<p class="rm-desc">${fmt(s.description)}</p>` : ''}
             <div class="rm-author">
               <h4>Author profile · ${blank(s.penName)}</h4>
               <dl>
-                <dt>Bio</dt><dd>${blank(s.author && s.author.bio)}</dd>
+                ${s.backups ? `<dt>Backup pen names</dt><dd>${esc(s.backups)}</dd>` : ''}
+                ${s.targetReader ? `<dt>Target reader</dt><dd>${fmt(s.targetReader)}</dd>` : ''}
+                ${s.credential ? `<dt>Credential</dt><dd>${fmt(s.credential)}</dd>` : ''}
                 <dt>Niche</dt><dd>${blank(s.author && s.author.niche)}</dd>
+                <dt>Bio</dt><dd>${blank(s.author && s.author.bio)}</dd>
                 <dt>Voice &amp; style</dt><dd>${blank(s.author && s.author.voice)}</dd>
               </dl>
             </div>
@@ -89,6 +95,9 @@
                   ${pill(b.status)}
                 </li>`).join('')}
             </ol>
+            ${(s.evidence || []).length ? `<div class="rm-evidence"><h4>${esc(s.evidenceTitle || 'Research')}</h4><ul>${s.evidence.map(e => `<li>${fmt(e)}</li>`).join('')}</ul></div>` : ''}
+            ${s.validate ? `<div class="rm-callout warn"><b>To validate</b><span>${fmt(s.validate)}</span></div>` : ''}
+            ${s.note ? `<div class="rm-callout"><b>Note</b><span>${fmt(s.note)}</span></div>` : ''}
           </div>
         </details>`).join('');
       return `
@@ -112,7 +121,9 @@
           ${seriesHTML ? `<h3 class="rm-sub">Series &amp; books</h3><div class="rm-series-list">${seriesHTML}</div>` : ''}
           ${ms.length ? `<h3 class="rm-sub">Milestones</h3><ul class="rm-milestones">${ms.map(m =>
             `<li class="${m.done ? 'done' : ''}"><span class="box">${m.done ? '✓' : ''}</span><span>${esc(m.label)}</span>${m.due ? `<small>${esc(m.due)}</small>` : ''}</li>`).join('')}</ul>` : ''}
-          ${p.notes ? `<h3 class="rm-sub">Notes</h3><p class="rm-notes">${esc(p.notes)}</p>` : ''}
+          ${(p.checklist || []).length ? `<h3 class="rm-sub">${esc(p.checklistTitle || 'Checklist')}</h3><ul class="rm-milestones rm-check">${p.checklist.map((m, k) =>
+            `<li class="${m.done ? 'done' : ''}"><span class="box">${m.done ? '✓' : k + 1}</span><span>${fmt(m.label)}</span></li>`).join('')}</ul>` : ''}
+          ${p.notes ? `<h3 class="rm-sub">Notes</h3><p class="rm-notes">${fmt(p.notes)}</p>` : ''}
           ${!seriesHTML && !ms.length && !p.notes ? '<p class="tba">Plan details will be added here.</p>' : ''}
         </div>
       </details>`;
