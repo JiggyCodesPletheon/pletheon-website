@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /roadmap.html
+
+Sitemap: https://pletheonmedianetwork.com/sitemap.xml
